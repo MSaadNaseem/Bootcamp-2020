@@ -7,7 +7,7 @@ name: Deploy Website
 on:
   push:
     branches: [ master ]
-  
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -19,13 +19,13 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
+    # Runs a single command using the runners shell
     - name: Install NodeJS
       uses: actions/setup-node@v2-beta
-      with:
+      with: 
         node-version: 12
     - name: Install Surge
       run: npm install -g surge
-    - name: Run surge
-      run: surge ./bootcampappsaad.sruge.sh --token ${{secrets.SURGE_TOKEN}} 
-  
+    - name: Run Surge
+      run: surge ./ bootcampnewapp.surge.sh --token ${{secrets.SURGE_TOKEN}}
